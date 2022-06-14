@@ -1,76 +1,41 @@
-function bst() {
-    this.root = null;
+const Node = () =>{
+    if(data) {
+       this.data = data;
+       this.left = null;
+       this.right = null;
+    }
+ }
+ const binaryTree = () => {
+	this.root = null;
+	this.insert = insert;
+    this.insertNode = insertNode;
+	
 }
 
-bst.prototype.insert = function( obj ){
-
-    if ( this.root == null ){
-        this.root = new node(obj);
+const insert =(data) => {
+       let newNode = new Node(data);
+       if(this.root === null){
+          this.root = newNode;
+       }else{
+          this.insertNode(this.root, newNode);
+       }
     }
-    else if (this.root.value > obj){
-         if (this.root.left != null ){
-            this.root.left.insert( obj );
-        }
-        else {
-            this.root.left = new node(obj);
-        }
-    } 
-    else if (this.root.value < obj){
-        if (this.root.right != null ){
-            this.root.right.insert( obj );
-        }
-        else {
-            this.root.right = new node(obj);
-        }
+const insertNode = (node, newNode) => {
+       if(newNode.data < node.data){
+          if(node.left === null){
+             node.left = newNode;
+          }else{
+             this.insertNode(node.left, newNode);
+          }
+       } else {
+          if(node.right === null){
+             node.right = newNode;
+          }else{
+             this.insertNode(node.right,newNode);
+          }
+       }
     }
-}
-
-    function node( obj ){
-
-   this.left = null;
-    this.right = null;
-    this.value = obj;
-
-    }
-
-node.prototype.insert = function( obj ){
-
-if (this.value > obj){
-
-    if (this.left != null){
-        this.left.insert( obj )
-    }
-    else{
-        this.left = new node(obj);
-    }
-}
-
-else if (this.value < obj){
-
-    if (this.right != null){
-        this.right.insert( obj )
-    }
-    else{
-        this.right = new node(obj);
-    }
-}
-else{
-    console.log("duplicated bst key")
-}
-
-}
-
-var bst = new bst();
-bst.insert(25);
-bst.insert(75);
-bst.insert(12);
-bst.insert(37);
-bst.insert(87);
-bst.insert(63);
-
-console.log(bst.root.value);
-console.log(bst.root.left.value);
-console.log(bst.root.right.value);
-console.log(bst.root.right.left.value);
-console.log(bst.root.right.right.value);
-console.log(bst.root.right.left.right.value);
+ console.log(10);
+ console.log(8);
+ console.log(13);
+ console.log(11);
