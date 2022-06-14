@@ -1,10 +1,10 @@
-function Node(element) {
+const Node = (element) => {
 	this.element = element;
 	this.next = null;
 	this.previous = null;
 }
 
-function List() {
+const List = () => {
 	this.head = new Node("head");
 	
 	this.find = find;
@@ -17,8 +17,8 @@ function List() {
 		
 }
 
-function find(item) {
-	var currNode = this.head;
+const find = (item) => {
+	let currNode = this.head;
 	while(currNode.element != item) {
 		currNode = currNode.next;
 	}
@@ -26,27 +26,25 @@ function find(item) {
 	return currNode;
 }
 
-
-function display(list) {
-	var currNode = this.head.next;
+const display = () => {
+	let currNode = this.head.next;
 	while (currNode != null) {
 		console.log(currNode.element);
 		currNode = currNode.next;
 	}
 }
 
-
-function insert(newElement, item) {
-	var newNode = new Node(newElement);
-	var current = this.find(item);
+const insert = (newElement, item) => {
+	let newNode = new Node(newElement);
+	let current = this.find(item);
 	newNode.next = current.next;
 	newNode.previous = current;
 	current.next = newNode;
 	
 }
 
-function remove(item) {
-	var currNode = this.find(item);
+const remove = (item) => {
+	let currNode = this.find(item);
 	if (currNode.next != null) {
 		currNode.previous.next = currNode.next;
 		currNode.next.previous = currNode.previous;
@@ -55,8 +53,8 @@ function remove(item) {
 	}
 }
 
-function findLast() {
-	var currNode = this.head;
+const findLast = () => {
+	let currNode = this.head;
 	while (currNode.next != null) {
 		currNode = currNode.next;
 	}
@@ -64,9 +62,9 @@ function findLast() {
 	return currNode;
 }
 
-function dispReverse() {
+const dispReverse = () => {
 
-	var currNode = this.head;
+	let currNode = this.head;
 	currNode = this.findLast();
 
 	while(currNode.previous != null) {
@@ -75,13 +73,12 @@ function dispReverse() {
 	}
 }
 
-var cities = new List(); 
-cities.insert("Conway", "head"); 
-cities.insert("Russellville", "Conway"); 
-cities.insert("Carlisle", "Russellville"); 
-cities.insert("Alma", "Carlisle"); 
-cities.display();
+console.log(insert,["Conway", "head"]);
+console.log(insert,["Russellville", "Conway"]);
+console.log(insert,["Carlisle", "Russellville"]);
+console.log(insert,["Alma", "Carlisle"]);
+console.log(display());
 
-cities.remove("Carlisle");
-cities.display();
-cities.dispReverse();
+console.log(remove,["Carlisle"]);
+console.log(display());
+console.log(dispReverse());

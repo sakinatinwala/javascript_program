@@ -1,20 +1,28 @@
-class Node {
-    constructor(data, next = null) {
+const Node = () => {
+    if(data, next = null) {
         this.data = data;
         this.next = next;
     }
 }
-class linkedList {
-    constructor() {
-        this.head = null;
-        this.size = 0;
-    }
 
-insertFirst(data) {
+const linkedlist = () => {
+	this.head = new Node("head");
+	
+	this.removeAt = removeAt;
+	this.insertFirst = insertFirst;
+    this.insertLast = insertLast;
+	this.insertAt = insertAt;
+	this.printListData = printListData;
+		
+}
+
+const insertFirst= (data) => {
     this.head = new Node(data, this.head);
     this.size++;
+    
 }
-insertLast(data) {
+
+const insertLast = (data) => {
     let node = new Node (data);
     let current ;
 
@@ -31,7 +39,7 @@ insertLast(data) {
     this.size++;
 }
 
-insertAt(data, index) {
+const insertAt = (data, index) => {
     if(index > 0 && index > this.size) {
         return;
     }
@@ -54,9 +62,10 @@ insertAt(data, index) {
     previous.next = node;
 
     this.size++;
+
 }
 
-removeAt(index) {
+const removeAt = (index) => {
     if(index > 0 && index > this.size) {
         return;
     }
@@ -77,8 +86,7 @@ removeAt(index) {
     this.size--;
 }
 
-
-printListData() {
+const printListData = () => {
     let current = this.head;
 
     while(current) {
@@ -86,13 +94,10 @@ printListData() {
         current = current.next;
     }
 }
-}
-const ll = new linkedList();
+console.log(insertFirst,[100]);
+console.log(insertFirst,[200]);
+console.log(insertFirst,[300]);
+console.log(insertLast,[400]);
+console.log(removeAt,[2]);
 
-ll.insertFirst(100);
-ll.insertFirst(200);
-ll.insertFirst(300);
-ll.insertLast(400);
-ll.removeAt(2);
-
-ll.printListData();
+console.log(printListData());
