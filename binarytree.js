@@ -1,41 +1,44 @@
-const Node = () =>{
-    if(data) {
-       this.data = data;
-       this.left = null;
-       this.right = null;
-    }
- }
- const binaryTree = () => {
-	this.root = null;
-	this.insert = insert;
-    this.insertNode = insertNode;
-	
+const node = {
+   id: null,
+   value: null,
+   left : null,
+   right : null,
+   
+}
+const binaryTree = [];
+const createNode = (id, value) => {
+   const node = {
+       id: id,
+       value: value,
+   }
+   return node;
 }
 
-const insert =(data) => {
-       let newNode = new Node(data);
+const insert = (id, value) => {
+       
+       const newNode = createNode(id, value);
        if(this.root === null){
-          this.root = newNode;
-       }else{
-          this.insertNode(this.root, newNode);
+           this.root = newNode;
+           return this;
        }
-    }
-const insertNode = (node, newNode) => {
-       if(newNode.data < node.data){
-          if(node.left === null){
-             node.left = newNode;
-          }else{
-             this.insertNode(node.left, newNode);
-          }
-       } else {
-          if(node.right === null){
-             node.right = newNode;
-          }else{
-             this.insertNode(node.right,newNode);
-          }
+       const current = this.root;
+       while(current){
+           if(value === current.value) return undefined;
+           if(value < current.value){
+               if(current.left === null){
+                   current.left = newNode;
+                   return this;
+               }
+               current = current.left;
+           } else {
+               if(current.right === null){
+                   current.right = newNode;
+                   return this;
+               } 
+               current = current.right;
+           }
        }
-    }
- console.log(10);
- console.log(8);
- console.log(13);
- console.log(11);
+      console.log(newNode); 
+   }
+insert(1,10);
+insert(2,10);
